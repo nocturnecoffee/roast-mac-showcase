@@ -1,0 +1,113 @@
+{
+  "stages": [
+    {
+      "ta": 170,
+      "tb": 0,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 200,
+      "tb": 112,
+      "fan": 50,
+      "time": 50
+    },
+    {
+      "ta": 210,
+      "tb": 119,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 220,
+      "tb": 127,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 230,
+      "tb": 133,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 240,
+      "tb": 139,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 245,
+      "tb": 147,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 245,
+      "tb": 155,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 255,
+      "tb": 188,
+      "fan": 55,
+      "time": 15
+    },
+    {
+      "ta": 260,
+      "tb": 188,
+      "fan": 60,
+      "time": 10
+    },
+    {
+      "ta": 265,
+      "tb": 188,
+      "fan": 60,
+      "time": 10
+    },
+    {
+      "ta": 270,
+      "tb": 188,
+      "fan": 65,
+      "time": 0
+    },
+    {
+      "ta": 265,
+      "tb": 200,
+      "fan": 60,
+      "time": 30
+    },
+    {
+      "ta": 0,
+      "tb": 0,
+      "fan": 0,
+      "time": 0
+    },
+    {
+      "ta": 0,
+      "tb": 0,
+      "fan": 0,
+      "time": 0
+    }
+  ],
+  "extended": {
+    "reg_75": 165,
+    "reg_76": 135,
+    "reg_77": 50
+  },
+  "metadata": {
+    "author": "Roast-Mac",
+    "base_on": "KINGHUJI-200-淺中焙-TEST3 + GoldenGAYO-200-極淺焙-TEST5 實證骨架",
+    "bt_calibration_note": "BT 目標為真實值;探針 -15°C 偏移已由 UI 補正顯示。",
+    "origin": "Sumatra",
+    "item": "GoldenGAYO",
+    "roast_level": "淺焙",
+    "load": 150,
+    "test_num": "Verified-v1",
+    "design_notes": "GoldenGAYO-200-極淺焙-TEST5 原樣(你『極高甜度』反饋版本)。",
+    "adjustments": [
+      "無 — 完整保留原配方"
+    ]
+  }
+}

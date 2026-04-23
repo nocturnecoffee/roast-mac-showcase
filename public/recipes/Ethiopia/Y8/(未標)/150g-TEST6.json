@@ -1,0 +1,72 @@
+{
+  "stages": [
+    {
+      "ta": 210,
+      "tb": 110,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 230,
+      "tb": 130,
+      "fan": 45,
+      "time": 35
+    },
+    {
+      "ta": 250,
+      "tb": 150,
+      "fan": 45,
+      "time": 35
+    },
+    {
+      "ta": 260,
+      "tb": 160,
+      "fan": 50,
+      "time": 25
+    },
+    {
+      "ta": 265,
+      "tb": 170,
+      "fan": 50,
+      "time": 25
+    },
+    {
+      "ta": 270,
+      "tb": 180,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 275,
+      "tb": 190,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 265,
+      "tb": 195,
+      "fan": 55,
+      "time": 30
+    },
+    {
+      "ta": 255,
+      "tb": 202,
+      "fan": 55,
+      "time": 30
+    }
+  ],
+  "extended": {
+    "reg_75": 200,
+    "reg_76": 150,
+    "reg_77": 50
+  },
+  "metadata": {
+    "origin": "Ethiopia",
+    "item": "Y8",
+    "roast_level": "(未標)",
+    "load": 150,
+    "test_num": "6",
+    "source": "chatgpt/Y8-150-TEST6.txt",
+    "drop_timing_hint": null
+  }
+}

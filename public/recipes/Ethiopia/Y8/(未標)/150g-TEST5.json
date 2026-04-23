@@ -1,0 +1,42 @@
+{
+  "stages": [
+    {
+      "ta": 200,
+      "tb": 150,
+      "fan": 50,
+      "time": 0
+    },
+    {
+      "ta": 200,
+      "tb": 150,
+      "fan": 50,
+      "time": 0
+    },
+    {
+      "ta": 0,
+      "tb": 190,
+      "fan": 60,
+      "time": 127
+    },
+    {
+      "ta": 0,
+      "tb": 202,
+      "fan": 70,
+      "time": 127
+    }
+  ],
+  "extended": {
+    "reg_75": 320,
+    "reg_76": 200,
+    "reg_77": 50
+  },
+  "metadata": {
+    "origin": "Ethiopia",
+    "item": "Y8",
+    "roast_level": "(未標)",
+    "load": 150,
+    "test_num": "5",
+    "source": "chatgpt/Y8-150-TEST5.txt",
+    "drop_timing_hint": null
+  }
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roast-Mac — 自製 ROAST-Master 替代控制介面</title>
+<meta name="description" content="給同好看的自製熱風機 Roaster Master 替代控制介面,支援 Modbus TCP、15 段配方、BT 探針校準、雙語階層式配方瀏覽。">
+<style>
+:root {
+  --bg: #0e1117;
+  --surface-1: #161b22;
+  --surface-2: #1f2530;
+  --surface-3: #2a313d;
+  --hairline: #30363d;
+  --ink-1: #e6edf3;
+  --ink-2: #9da7b3;
+  --ink-3: #6b7785;
+  --amber: #d97706;
+  --ember: #ea580c;
+  --sage: #4ade80;
+  --alert: #e94560;
+  --cool: #06b6d4;
+  --violet: #a78bfa;
+  --sans: "IBM Plex Sans", "Noto Sans TC", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--ink-1); font-family: var(--sans); font-feature-settings: "tnum" 1; letter-spacing: -0.005em; line-height: 1.5; }
+a { color: var(--amber); text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { font-family: var(--mono); background: var(--surface-2); padding: 1px 6px; border-radius: 3px; font-size: 0.92em; }
+
+.shell { max-width: 1140px; margin: 0 auto; padding: 40px 24px 64px; }
+.top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--hairline); margin-bottom: 48px; }
+.top h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+.top .mono-tag { font-family: var(--mono); font-size: 12px; color: var(--ink-3); padding: 4px 10px; border: 1px solid var(--hairline); border-radius: 4px; }
+
+/* Hero */
+.hero { margin-bottom: 64px; }
+.hero h2 { font-size: 40px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 16px; line-height: 1.15; }
+.hero h2 .amber { color: var(--amber); }
+.hero .sub { color: var(--ink-2); font-size: 17px; max-width: 720px; margin-bottom: 24px; }
+.hero .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+.hero .tag { font-size: 11px; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.08em; padding: 5px 12px; border: 1px solid var(--hairline); border-radius: 999px; }
+.video-wrap { background: var(--surface-1); border: 1px solid var(--hairline); border-radius: 10px; overflow: hidden; }
+.video-wrap video { width: 100%; display: block; background: #000; }
+
+/* Section */
+section { margin-bottom: 64px; }
+section h3 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); font-weight: 600; margin-bottom: 12px; }
+section h4 { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 20px; }
+section p { color: var(--ink-2); margin-bottom: 14px; }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 800px) { .grid-3 { grid-template-columns: 1fr; } }
+.card { background: var(--surface-1); border: 1px solid var(--hairline); border-radius: 8px; padding: 24px; }
+.card h5 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--ink-1); }
+.card .metric { font-size: 32px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--amber); margin-bottom: 4px; letter-spacing: -0.02em; }
+.card p { font-size: 13px; color: var(--ink-2); }
+
+/* Recipe browser */
+.recipes-shell { background: var(--surface-1); border: 1px solid var(--hairline); border-radius: 10px; padding: 24px; }
+.picker-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+@media (max-width: 800px) { .picker-grid { grid-template-columns: repeat(2, 1fr); } }
+.picker-cell { display: flex; flex-direction: column; gap: 6px; }
+.picker-cell label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3); font-weight: 600; }
+.picker-cell label .count { color: var(--ink-2); font-weight: 500; margin-left: 4px; }
+.picker-cell select {
+  width: 100%; padding: 10px 30px 10px 12px;
+  border: 1px solid var(--hairline); border-radius: 6px;
+  background: var(--surface-2); color: var(--ink-1); font-size: 13px; font-family: inherit;
+  appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%239da7b3' d='M0 0l5 6 5-6z'/></svg>");
+  background-repeat: no-repeat; background-position: right 12px center;
+}
+.picker-cell select:hover { border-color: var(--ink-3); }
+.picker-cell select:focus { outline: none; border-color: var(--amber); }
+.picker-cell select:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.summary { display: none; padding: 14px 16px; background: var(--surface-2); border: 1px solid var(--hairline); border-radius: 6px; margin-bottom: 16px; }
+.summary.show { display: block; }
+.summary .chain { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 8px; }
+.summary .chain .sep { color: var(--ink-3); }
+.summary .version { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; margin-left: 6px; }
+.summary .version.verified { background: var(--sage); color: var(--bg); }
+.summary .version.test { background: var(--surface-3); color: var(--ink-1); }
+.summary .meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: var(--ink-2); margin-bottom: 8px; }
+.summary .meta strong { color: var(--ink-1); font-weight: 500; }
+.summary .hint { padding: 10px 14px; background: var(--bg); border-left: 2px solid var(--amber); border-radius: 2px; font-size: 12px; line-height: 1.6; color: var(--ink-2); white-space: pre-wrap; }
+.summary .hint strong { color: var(--amber); font-weight: 600; }
+
+.stage-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 16px; }
+.stage-table th { padding: 8px 6px; text-align: center; color: var(--ink-3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; font-size: 10px; border-bottom: 1px solid var(--hairline); }
+.stage-table td { padding: 6px 4px; text-align: center; font-variant-numeric: tabular-nums; font-family: var(--mono); }
+.stage-table tr.has-data { background: var(--surface-2); }
+.stage-table tr.empty td { opacity: 0.25; }
+
+/* Spec list */
+.spec { display: grid; grid-template-columns: 180px 1fr; gap: 10px 24px; font-size: 13px; padding: 16px 0; border-top: 1px solid var(--hairline); }
+.spec dt { color: var(--ink-3); text-transform: uppercase; font-size: 10px; letter-spacing: 0.08em; padding-top: 2px; font-weight: 600; }
+.spec dd { color: var(--ink-1); }
+
+/* Footer */
+footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--hairline); color: var(--ink-3); font-size: 12px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; }
+
+.warn { background: color-mix(in srgb, var(--amber) 15%, transparent); border: 1px solid var(--amber); border-radius: 8px; padding: 16px 20px; font-size: 13px; color: var(--ink-1); margin-bottom: 32px; }
+.warn strong { color: var(--amber); }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<div class="top">
+  <h1>Roast-Mac</h1>
+  <span class="mono-tag">ROAST-Master 替代控制介面 / v1</span>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <h2>原廠軟體的<span class="amber">反編譯替代品</span>。<br>跨平台、階層式配方、BT 校準。</h2>
+  <p class="sub">
+    這是一套給同型熱風機使用者的控制介面替代方案。基於反編譯原廠 Roast-Master.exe 得到的 Modbus TCP 協議重新實作,
+    支援 macOS / Linux / Windows 任何能跑 Python 的環境,並提供原廠所欠缺的配方管理、BT 探針漂移校準、與 web-based 遠端存取。
+  </p>
+  <div class="tags">
+    <span class="tag">Modbus TCP</span>
+    <span class="tag">15-stage Recipe</span>
+    <span class="tag">BT Drift Calibration</span>
+    <span class="tag">階層式配方庫</span>
+    <span class="tag">反編譯 PLC 協議</span>
+    <span class="tag">Python · pymodbus 3.13</span>
+  </div>
+  <div class="video-wrap">
+    <video src="demo.mp4" controls autoplay muted loop playsinline></video>
+  </div>
+</div>
+
+<div class="warn">
+  <strong>部署限制說明:</strong> 此 Vercel 頁面是展示用。實際控制烘豆機的程式必須跑在跟機器同網段的電腦上
+  (機器 IP 固定 <code>192.168.11.20</code> Modbus TCP 502)。這裡提供的是 UI demo + 完整配方庫瀏覽 +
+  反編譯協議文件,給同好看架構跟借用配方。
+</div>
+
+<!-- Stats -->
+<section>
+  <h3>現況</h3>
+  <div class="grid-3">
+    <div class="card">
+      <div class="metric">79</div>
+      <h5>配方庫</h5>
+      <p>橫跨 5 產區 × 12 品項 × 5 種烘焙度,匯入自原廠 .txt 格式後結構化為 JSON</p>
+    </div>
+    <div class="card">
+      <div class="metric">197</div>
+      <h5>實烘紀錄</h5>
+      <p>11 個月跨年度實測曲線,供校準分析、BT 探針漂移偵測用</p>
+    </div>
+    <div class="card">
+      <div class="metric">15°C</div>
+      <h5>探針漂移</h5>
+      <p>新機 1C 在 BT=200°C,實測累積老化後 1C 讀值降到 180-185°C,軟體自動補正顯示</p>
+    </div>
+  </div>
+</section>
+
+<!-- Recipe browser -->
+<section>
+  <h3>配方庫瀏覽器</h3>
+  <h4>四層階層式選擇 — 產區 › 品項 › 烘焙度 › 版本</h4>
+  <p>實際 app 的 UI 複本 (read-only)。全部 79 份配方可直接在此瀏覽,含各自 Drop 時機、設計註記、BT 校準對應。</p>
+
+  <div class="recipes-shell">
+    <div class="picker-grid">
+      <div class="picker-cell">
+        <label>產區 <span class="count" id="originCount"></span></label>
+        <select id="pickOrigin" onchange="onPickOrigin()"></select>
+      </div>
+      <div class="picker-cell">
+        <label>品項 <span class="count" id="itemCount"></span></label>
+        <select id="pickItem" onchange="onPickItem()" disabled></select>
+      </div>
+      <div class="picker-cell">
+        <label>烘焙度 <span class="count" id="roastCount"></span></label>
+        <select id="pickRoast" onchange="onPickRoast()" disabled></select>
+      </div>
+      <div class="picker-cell">
+        <label>豆量 / 版本 <span class="count" id="fileCount"></span></label>
+        <select id="pickFile" onchange="loadPickedRecipe()" disabled></select>
+      </div>
+    </div>
+
+    <div class="summary" id="pickerSummary">
+      <div class="chain" id="summaryChain"></div>
+      <div class="meta" id="summaryMeta"></div>
+      <div class="hint" id="summaryHint" style="display:none"></div>
+    </div>
+
+    <table class="stage-table" id="stageTable" style="display:none">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>TA 溫度目標 (°C)</th>
+          <th>TB 火力 (0-255)</th>
+          <th>風量 (0-100%)</th>
+          <th>時間 (秒)</th>
+        </tr>
+      </thead>
+      <tbody id="stageBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- BT Calibration -->
+<section>
+  <h3>BT 探針漂移校準</h3>
+  <h4>熱電偶隨使用時數讀值會偏低,這套軟體內建補正</h4>
+  <p>
+    長時間使用的熱電偶探針會因氧化層累積、絕緣劣化使讀值比實際偏低。新機時「一爆」聲音對應的 BT 讀值約為 200°C,
+    使用兩三年後降到 180-185°C。若直接沿用新機配方,會造成 <strong>系統性 under-development</strong> — 軟體顯示 BT 低所以持續加熱,
+    實際已過一爆進入 development 但時間拉長。校準 offset 15°C 後,UI 上的 BT 顯示值會自動 +15,所有配方 target 可回歸真實溫度。
+  </p>
+  <dl class="spec">
+    <dt>新機 1C</dt><dd>BT 讀值 200°C = 真實 200°C (誤差 0)</dd>
+    <dt>當前 1C</dt><dd>BT 讀值 180-185°C = 真實 ~200°C (偏移 -15 ~ -17°C)</dd>
+    <dt>軟體做法</dt><dd>UI 主顯示套用 <code>+offset</code>,小字顯示原始讀值給對照;配方 design_bt_actual / design_bt_reading 同時列雙值</dd>
+    <dt>實測驗證</dt><dd>171 筆 log 重分析:校準前 Dev ratio 中位 8.9% → 校準後 19.9% (對齊 Nordic 延伸範圍)</dd>
+  </dl>
+</section>
+
+<!-- Architecture -->
+<section>
+  <h3>技術架構</h3>
+  <h4>反編譯 → pymodbus → Web UI</h4>
+  <dl class="spec">
+    <dt>硬體協議</dt><dd>Modbus TCP,port 502,device_id=1,register 0-299 映射反編譯自原廠 .NET exe</dd>
+    <dt>配方存儲</dt><dd>reg 0-59 共 15 段 × 4 欄 (TA/TB/Fan/Time),reg 75-77 預熱 setpoint</dd>
+    <dt>即時感測</dt><dd>reg 202/203/204 = ET/BT/Fan 三連 register,溫度值 × 10 編碼 (1923 = 192.3°C)</dd>
+    <dt>歷史緩衝</dt><dd>reg 221-238 = 9 點 ET/BT 時序曲線快照,機器自動寫入</dd>
+    <dt>啟動 / 停止</dt><dd>寫 reg 104 = 1 啟動烘焙;寫 reg 148 = 1 停止</dd>
+    <dt>後端</dt><dd>Python 3.12 + pymodbus 3.13 + stdlib http.server,無框架依賴</dd>
+    <dt>前端</dt><dd>單頁 HTML + Canvas 圖表,無 build step,500ms polling</dd>
+    <dt>Discovery</dt><dd>auto-detect registers: 三連 [temp, temp, fan] pattern scoring,適應不同韌體</dd>
+  </dl>
+</section>
+
+<!-- Verified DNA -->
+<section>
+  <h3>Verified DNA</h3>
+  <h4>8 份「驗證過」配方 — 從使用者實戰成功 DNA 倒推</h4>
+  <p>
+    透過分析 197 筆實烘 log + 使用者實測反饋(KINGHUJI 與 GoldenGAYO 喝起來最優),
+    抽取共通 pattern 後生成 Nordic 延伸風格的 Verified-v1 配方:<strong>TB peak 188 × TA peak 270 × Fan 45-65 × Stage 14 TB=0 或 TB=200</strong>。
+    任何超出使用者實際用過數值的「中間妥協值」一律不採用 — 每個 stage 的數字都能追溯回某份你已用過的 TEST 配方。
+  </p>
+  <dl class="spec">
+    <dt>Ethiopia / KINGHUJI</dt><dd>骨架 = 你 KINGHUJI-200-淺中焙-TEST3 (爆炸香氣版),微調 Stage 11-12 Fan +5</dd>
+    <dt>Sumatra / GoldenGAYO</dt><dd>完整保留 GoldenGAYO-TEST5 (極高甜度版),Stage 13 TB=200 Dev 30s 不動</dd>
+    <dt>Kenya / 琥珀餘香 等</dt><dd>套 KenyaBLUE-200-淺焙-TEST3 骨架 (TB peak 180 保酸質)</dd>
+    <dt>Panama / Geisha</dt><dd>套 panama-200-極淺焙-TEST1 骨架 (TB peak 175 保花香)</dd>
+    <dt>陳豆 aged variant</dt><dd>TA 全 -5°C + Dry 縮短 + Dev 縮短,對應低含水量豆</dd>
+  </dl>
+</section>
+
+<footer>
+  <div>Roast-Mac · 自製 ROAST-Master 替代控制介面 · 協議反編譯自原廠 PLC</div>
+  <div>同機型同好取用:所有 JSON 配方與協議規格皆可直接使用</div>
+</footer>
+
+</div>
+
+<script>
+// ===== Recipe browser (唯讀) =====
+const ORIGIN_LABEL = {
+  'Ethiopia': 'Ethiopia 衣索比亞',
+  'Kenya': 'Kenya 肯亞',
+  'Sumatra': 'Sumatra 蘇門答臘',
+  'Panama': 'Panama 巴拿馬',
+  '_Template': '_Template 範本',
+};
+const ROAST_DROP_HINT = {
+  '極淺焙': '1C + 30s', '淺焙': '1C + 45~70s', '淺中焙': '1C + 70~90s',
+  '中淺焙': '1C + 90~100s', '中焙': '1C + 100~120s',
+};
+let recipeTree = {};
+
+function totalCount(node) {
+  if (Array.isArray(node)) return node.length;
+  let n = 0; for (const k of Object.keys(node)) n += totalCount(node[k]);
+  return n;
+}
+function setCount(id, n) { document.getElementById(id).textContent = n ? `(${n})` : ''; }
+function formatEntryLabel(e) {
+  const stem = e.stem;
+  let label;
+  if (stem.startsWith('Verified-v1')) {
+    const rest = stem.replace('Verified-v1-', '');
+    const parts = rest.split('-');
+    const tagTxt = parts[1] === 'aged' ? '陳豆' : '推薦';
+    label = `Verified v1 · ${parts[0]} · ${tagTxt}`;
+  } else {
+    const m = stem.match(/^(\d+g)-(TEST\d*)(?:-(.+))?$/);
+    if (m) {
+      const [, load, test, tag] = m;
+      const tagTxt = tag === 'sweet' ? '小農 SWEET' : (tag || '');
+      label = tagTxt ? `${test} · ${load} · ${tagTxt}` : `${test} · ${load}`;
+    } else label = stem;
+  }
+  return `${label} — ${e.stages_count}段`;
+}
+
+async function init() {
+  const r = await fetch('recipes-index.json').then(r => r.json());
+  recipeTree = r.tree || {};
+  const sel = document.getElementById('pickOrigin');
+  const origins = Object.keys(recipeTree).sort();
+  sel.innerHTML = '<option value="">選擇產區…</option>' +
+    origins.map(o => {
+      const label = ORIGIN_LABEL[o] || o;
+      const n = totalCount(recipeTree[o]);
+      return `<option value="${o}">${label} — ${n} 份</option>`;
+    }).join('');
+  setCount('originCount', origins.length);
+}
+
+function onPickOrigin() {
+  const origin = document.getElementById('pickOrigin').value;
+  const sel = document.getElementById('pickItem');
+  if (!origin) { sel.innerHTML = '<option value="">先選產區</option>'; sel.disabled = true; setCount('itemCount', 0); onPickItem(); return; }
+  const items = Object.keys(recipeTree[origin] || {}).sort();
+  sel.disabled = false;
+  sel.innerHTML = '<option value="">選擇品項…</option>' +
+    items.map(i => {
+      const n = totalCount(recipeTree[origin][i]);
+      return `<option value="${i}">${i} — ${n} 份</option>`;
+    }).join('');
+  setCount('itemCount', items.length);
+  onPickItem();
+}
+
+function onPickItem() {
+  const origin = document.getElementById('pickOrigin').value;
+  const item = document.getElementById('pickItem').value;
+  const sel = document.getElementById('pickRoast');
+  if (!origin || !item) { sel.innerHTML = '<option value="">先選品項</option>'; sel.disabled = true; setCount('roastCount', 0); onPickRoast(); return; }
+  const roasts = Object.keys(recipeTree[origin][item] || {}).sort();
+  sel.disabled = false;
+  sel.innerHTML = '<option value="">選擇烘焙度…</option>' +
+    roasts.map(r => {
+      const n = (recipeTree[origin][item][r] || []).length;
+      const hint = ROAST_DROP_HINT[r] ? ` · ${ROAST_DROP_HINT[r]}` : '';
+      return `<option value="${r}">${r}${hint} — ${n} 份</option>`;
+    }).join('');
+  setCount('roastCount', roasts.length);
+  onPickRoast();
+}
+
+function onPickRoast() {
+  const origin = document.getElementById('pickOrigin').value;
+  const item = document.getElementById('pickItem').value;
+  const roast = document.getElementById('pickRoast').value;
+  const sel = document.getElementById('pickFile');
+  if (!origin || !item || !roast) {
+    sel.innerHTML = '<option value="">先選烘焙度</option>';
+    sel.disabled = true; setCount('fileCount', 0);
+    document.getElementById('pickerSummary').classList.remove('show');
+    document.getElementById('stageTable').style.display = 'none';
+    return;
+  }
+  const entries = recipeTree[origin][item][roast] || [];
+  const sorted = [...entries].sort((a, b) => {
+    const av = a.stem.startsWith('Verified') ? 0 : 1;
+    const bv = b.stem.startsWith('Verified') ? 0 : 1;
+    return av - bv || a.stem.localeCompare(b.stem);
+  });
+  sel.disabled = false;
+  sel.innerHTML = '<option value="">選擇版本…</option>' +
+    sorted.map(e => `<option value="${e.path}">${formatEntryLabel(e)}</option>`).join('');
+  setCount('fileCount', sorted.length);
+}
+
+async function loadPickedRecipe() {
+  const path = document.getElementById('pickFile').value;
+  if (!path) return;
+  const obj = await fetch(`recipes/${path}`).then(r => r.json());
+  const meta = obj.metadata || {};
+  const stages = obj.stages || [];
+  renderSummary(meta);
+  renderStageTable(stages);
+}
+
+function renderSummary(metadata) {
+  const card = document.getElementById('pickerSummary');
+  const origin = metadata.origin || '-';
+  const originLabel = ORIGIN_LABEL[origin] || origin;
+  const item = metadata.item || '-';
+  const roast = metadata.roast_level || '-';
+  const test = metadata.test_num || '';
+  const isVerified = String(test).startsWith('Verified');
+  const versionHtml = test ? `<span class="version ${isVerified?'verified':'test'}">${test}</span>` : '';
+  document.getElementById('summaryChain').innerHTML =
+    `<span>${originLabel}</span><span class="sep">›</span>` +
+    `<span>${item}</span><span class="sep">›</span>` +
+    `<span>${roast}</span>` + versionHtml;
+  const m = [];
+  if (metadata.load) m.push(`<span>豆量 <strong>${metadata.load}g</strong></span>`);
+  if (metadata.process) m.push(`<span>處理法 <strong>${metadata.process}</strong></span>`);
+  if (metadata.variety) m.push(`<span>品種 <strong>${metadata.variety}</strong></span>`);
+  if (metadata.variant === 'aged_low_moisture') m.push(`<span><strong>陳豆變體</strong></span>`);
+  if (metadata.design_total_s) m.push(`<span>設計時長 <strong>${Math.floor(metadata.design_total_s/60)}:${String(metadata.design_total_s%60).padStart(2,'0')}</strong></span>`);
+  if (metadata.design_1c_bt_actual) m.push(`<span>1C BT <strong>${metadata.design_1c_bt_actual}°C</strong> 真實 / ${metadata.design_1c_bt_actual-15}°C 讀值</span>`);
+  if (metadata.design_drop_bt_actual) m.push(`<span>Drop BT <strong>${metadata.design_drop_bt_actual}°C</strong></span>`);
+  document.getElementById('summaryMeta').innerHTML = m.join('');
+  const hintEl = document.getElementById('summaryHint');
+  const parts = [];
+  if (metadata.drop_timing_hint) parts.push(`<strong>Drop 時機</strong>  ${metadata.drop_timing_hint}`);
+  if (metadata.base_on) parts.push(`<strong>骨架基於</strong>  ${metadata.base_on}`);
+  if (metadata.adjustments && metadata.adjustments.length) parts.push(`<strong>微調</strong>\n  ${metadata.adjustments.join('\n  ')}`);
+  if (metadata.design_notes) parts.push(`<strong>設計說明</strong>\n${metadata.design_notes}`);
+  if (parts.length) {
+    hintEl.innerHTML = parts.join('\n\n');
+    hintEl.style.display = '';
+  } else hintEl.style.display = 'none';
+  card.classList.add('show');
+}
+
+function renderStageTable(stages) {
+  const tbl = document.getElementById('stageTable');
+  const body = document.getElementById('stageBody');
+  body.innerHTML = '';
+  for (let i = 0; i < 15; i++) {
+    const s = stages[i] || { ta: 0, tb: 0, fan: 0, time: 0 };
+    const has = s.ta || s.tb || s.fan || s.time;
+    const tr = document.createElement('tr');
+    tr.className = has ? 'has-data' : 'empty';
+    tr.innerHTML = `<td>${i+1}</td><td>${s.ta || ''}</td><td>${s.tb || ''}</td><td>${s.fan || ''}</td><td>${s.time || ''}</td>`;
+    body.appendChild(tr);
+  }
+  tbl.style.display = '';
+}
+
+init();
+</script>
+</body>
+</html>

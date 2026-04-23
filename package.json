@@ -1,0 +1,10 @@
+{
+  "name": "roast-mac-showcase",
+  "version": "1.0.0",
+  "description": "Showcase site for Roast-Mac — custom ROAST-Master replacement UI",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 3000 --directory public",
+    "build": "echo 'Static site — no build needed'"
+  }
+}

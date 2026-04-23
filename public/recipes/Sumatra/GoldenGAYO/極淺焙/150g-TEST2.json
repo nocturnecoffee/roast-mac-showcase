@@ -1,0 +1,108 @@
+{
+  "stages": [
+    {
+      "ta": 170,
+      "tb": 0,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 200,
+      "tb": 112,
+      "fan": 50,
+      "time": 50
+    },
+    {
+      "ta": 210,
+      "tb": 119,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 220,
+      "tb": 127,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 230,
+      "tb": 133,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 240,
+      "tb": 139,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 245,
+      "tb": 147,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 245,
+      "tb": 155,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 250,
+      "tb": 188,
+      "fan": 55,
+      "time": 20
+    },
+    {
+      "ta": 260,
+      "tb": 188,
+      "fan": 60,
+      "time": 20
+    },
+    {
+      "ta": 265,
+      "tb": 188,
+      "fan": 60,
+      "time": 20
+    },
+    {
+      "ta": 270,
+      "tb": 188,
+      "fan": 65,
+      "time": 0
+    },
+    {
+      "ta": 0,
+      "tb": 0,
+      "fan": 0,
+      "time": 0
+    },
+    {
+      "ta": 270,
+      "tb": 188,
+      "fan": 65,
+      "time": 0
+    },
+    {
+      "ta": 265,
+      "tb": 200,
+      "fan": 60,
+      "time": 40
+    }
+  ],
+  "extended": {
+    "reg_75": 165,
+    "reg_76": 135,
+    "reg_77": 50
+  },
+  "metadata": {
+    "origin": "Sumatra",
+    "item": "GoldenGAYO",
+    "roast_level": "極淺焙",
+    "load": 150,
+    "test_num": "2",
+    "source": "chatgpt/GoldenGAYO-150-極淺焙-TEST2.txt",
+    "drop_timing_hint": "1C + 30s"
+  }
+}

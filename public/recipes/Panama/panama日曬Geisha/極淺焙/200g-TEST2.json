@@ -1,0 +1,96 @@
+{
+  "stages": [
+    {
+      "ta": 185,
+      "tb": 0,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 200,
+      "tb": 112,
+      "fan": 45,
+      "time": 50
+    },
+    {
+      "ta": 215,
+      "tb": 119,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 225,
+      "tb": 127,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 235,
+      "tb": 133,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 245,
+      "tb": 139,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 250,
+      "tb": 147,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 255,
+      "tb": 155,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 260,
+      "tb": 188,
+      "fan": 50,
+      "time": 15
+    },
+    {
+      "ta": 265,
+      "tb": 188,
+      "fan": 55,
+      "time": 10
+    },
+    {
+      "ta": 270,
+      "tb": 188,
+      "fan": 55,
+      "time": 10
+    },
+    {
+      "ta": 280,
+      "tb": 188,
+      "fan": 60,
+      "time": 0
+    },
+    {
+      "ta": 275,
+      "tb": 200,
+      "fan": 55,
+      "time": 30
+    }
+  ],
+  "extended": {
+    "reg_75": 180,
+    "reg_76": 150,
+    "reg_77": 45
+  },
+  "metadata": {
+    "origin": "Panama",
+    "item": "panama日曬Geisha",
+    "roast_level": "極淺焙",
+    "load": 200,
+    "test_num": "2",
+    "source": "chatgpt/panama日曬Geisha-200-極淺焙-TEST2.txt",
+    "drop_timing_hint": "1C + 30s"
+  }
+}

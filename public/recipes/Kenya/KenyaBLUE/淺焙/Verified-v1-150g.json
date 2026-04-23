@@ -1,0 +1,111 @@
+{
+  "stages": [
+    {
+      "ta": 165,
+      "tb": 0,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 175,
+      "tb": 81,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 180,
+      "tb": 87,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 190,
+      "tb": 93,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 195,
+      "tb": 99,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 200,
+      "tb": 105,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 200,
+      "tb": 112,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 210,
+      "tb": 119,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 220,
+      "tb": 127,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 230,
+      "tb": 133,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 240,
+      "tb": 139,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 245,
+      "tb": 147,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 250,
+      "tb": 155,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 280,
+      "tb": 188,
+      "fan": 55,
+      "time": 0
+    },
+    {
+      "ta": 270,
+      "tb": 200,
+      "fan": 60,
+      "time": 40
+    }
+  ],
+  "extended": {
+    "reg_75": 170,
+    "reg_76": 130,
+    "reg_77": 45
+  },
+  "metadata": {
+    "author": "Roast-Mac",
+    "base_on": "KINGHUJI-200-淺中焙-TEST3 + GoldenGAYO-200-極淺焙-TEST5 實證骨架",
+    "bt_calibration_note": "BT 目標為真實值;探針 -15°C 偏移已由 UI 補正顯示。",
+    "origin": "Kenya",
+    "item": "KenyaBLUE",
+    "roast_level": "淺焙",
+    "load": 150,
+    "test_num": "Verified-v1",
+    "process": "水洗 (washed)",
+    "design_notes": "以你 KenyaBLUE-200-淺焙-TEST3 骨架(Stage 15 TB=200 Dev 40s)套到 KenyaBLUE。"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "stages": [
+    {
+      "ta": 165,
+      "tb": 0,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 190,
+      "tb": 93,
+      "fan": 45,
+      "time": 40
+    },
+    {
+      "ta": 195,
+      "tb": 93,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 200,
+      "tb": 112,
+      "fan": 45,
+      "time": 40
+    },
+    {
+      "ta": 210,
+      "tb": 119,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 220,
+      "tb": 127,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 230,
+      "tb": 133,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 240,
+      "tb": 139,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 245,
+      "tb": 147,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 250,
+      "tb": 155,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 260,
+      "tb": 188,
+      "fan": 50,
+      "time": 10
+    },
+    {
+      "ta": 265,
+      "tb": 188,
+      "fan": 55,
+      "time": 10
+    },
+    {
+      "ta": 270,
+      "tb": 188,
+      "fan": 55,
+      "time": 0
+    },
+    {
+      "ta": 265,
+      "tb": 0,
+      "fan": 60,
+      "time": 65
+    },
+    {
+      "ta": 0,
+      "tb": 0,
+      "fan": 0,
+      "time": 0
+    }
+  ],
+  "extended": {
+    "reg_75": 160,
+    "reg_76": 130,
+    "reg_77": 45
+  },
+  "metadata": {
+    "author": "Roast-Mac",
+    "base_on": "KINGHUJI-200-淺中焙-TEST3 + GoldenGAYO-200-極淺焙-TEST5 實證骨架",
+    "bt_calibration_note": "BT 目標為真實值;探針 -15°C 偏移已由 UI 補正顯示。",
+    "origin": "Ethiopia",
+    "item": "KINGHUJI",
+    "roast_level": "淺焙",
+    "load": 200,
+    "test_num": "Verified-v1",
+    "adjustments": [
+      "Stage 11 Fan 45→50 (你 KINGHUJI-150-淺焙-TEST1 已使用)",
+      "Stage 12 Fan 50→55 (你 KINGHUJI-150-淺中焙-TEST1 已使用)",
+      "Stage 14 TB=0 完整保留 — 這是你 TEST3 爆炸香氣+高甜度的關鍵"
+    ],
+    "design_notes": "你 KINGHUJI-200-淺中焙-TEST3 骨架完全保留,只把 Stage 11-12 Fan 提到你其他淺焙版本用過的 50/55 值。"
+  }
+}

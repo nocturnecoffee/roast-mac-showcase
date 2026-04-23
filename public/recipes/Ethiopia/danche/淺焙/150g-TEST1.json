@@ -1,0 +1,108 @@
+{
+  "stages": [
+    {
+      "ta": 165,
+      "tb": 0,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 180,
+      "tb": 87,
+      "fan": 45,
+      "time": 40
+    },
+    {
+      "ta": 190,
+      "tb": 93,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 195,
+      "tb": 99,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 200,
+      "tb": 105,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 200,
+      "tb": 112,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 210,
+      "tb": 119,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 220,
+      "tb": 127,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 230,
+      "tb": 133,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 240,
+      "tb": 139,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 245,
+      "tb": 147,
+      "fan": 45,
+      "time": 20
+    },
+    {
+      "ta": 255,
+      "tb": 155,
+      "fan": 50,
+      "time": 20
+    },
+    {
+      "ta": 270,
+      "tb": 188,
+      "fan": 55,
+      "time": 20
+    },
+    {
+      "ta": 280,
+      "tb": 188,
+      "fan": 55,
+      "time": 0
+    },
+    {
+      "ta": 270,
+      "tb": 200,
+      "fan": 60,
+      "time": 40
+    }
+  ],
+  "extended": {
+    "reg_75": 160,
+    "reg_76": 130,
+    "reg_77": 50
+  },
+  "metadata": {
+    "origin": "Ethiopia",
+    "item": "danche",
+    "roast_level": "淺焙",
+    "load": 150,
+    "test_num": "1",
+    "source": "chatgpt/danche-150-淺焙-TEST1.txt",
+    "drop_timing_hint": "1C + 45~70s"
+  }
+}

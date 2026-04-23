@@ -1,0 +1,714 @@
+{
+  "recipes": [
+    {
+      "origin": "_Template",
+      "item": "Base_Line",
+      "roast_level": "(範本)",
+      "load": 0,
+      "test_num": "Base_Line",
+      "path": "_Template/Base_Line/(範本)/0g-TESTBase_Line.json",
+      "drop_hint": null,
+      "stages_count": 5
+    },
+    {
+      "origin": "_Template",
+      "item": "Base_Line",
+      "roast_level": "(範本)",
+      "load": 150,
+      "test_num": "Base_Line_150g",
+      "path": "_Template/Base_Line/(範本)/150g-TESTBase_Line_150g.json",
+      "drop_hint": null,
+      "stages_count": 6
+    },
+    {
+      "origin": "Sumatra",
+      "item": "GoldenGAYO",
+      "roast_level": "中焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Sumatra/GoldenGAYO/中焙/150g-TEST1.json",
+      "drop_hint": "1C + 100~120s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Sumatra",
+      "item": "GoldenGAYO",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Sumatra/GoldenGAYO/極淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Sumatra",
+      "item": "GoldenGAYO",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "2",
+      "path": "Sumatra/GoldenGAYO/極淺焙/150g-TEST2.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Sumatra",
+      "item": "GoldenGAYO",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "3",
+      "path": "Sumatra/GoldenGAYO/極淺焙/150g-TEST3.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Sumatra",
+      "item": "GoldenGAYO",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "4",
+      "path": "Sumatra/GoldenGAYO/極淺焙/150g-TEST4.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Sumatra",
+      "item": "GoldenGAYO",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Sumatra/GoldenGAYO/淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Sumatra",
+      "item": "GoldenGAYO",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "2",
+      "path": "Sumatra/GoldenGAYO/淺焙/150g-TEST2.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Sumatra",
+      "item": "GoldenGAYO",
+      "roast_level": "極淺焙",
+      "load": 200,
+      "test_num": "5",
+      "path": "Sumatra/GoldenGAYO/極淺焙/200g-TEST5.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Kenya",
+      "item": "KENYA95",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Kenya/KENYA95/淺中焙/150g-TEST1.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Kenya",
+      "item": "KENYA95",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "2",
+      "path": "Kenya/KENYA95/淺中焙/150g-TEST2.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Kenya",
+      "item": "KENYA95",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "3",
+      "path": "Kenya/KENYA95/淺中焙/150g-TEST3.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Kenya",
+      "item": "KENYA95",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Kenya/KENYA95/淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Kenya",
+      "item": "KENYA95",
+      "roast_level": "淺中焙",
+      "load": 200,
+      "test_num": "3",
+      "path": "Kenya/KENYA95/淺中焙/200g-TEST3.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "1",
+      "path": "Ethiopia/KINGHUJI/(未標)/150g-TEST1.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "2",
+      "path": "Ethiopia/KINGHUJI/(未標)/150g-TEST2.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Ethiopia/KINGHUJI/淺中焙/150g-TEST1.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "2",
+      "path": "Ethiopia/KINGHUJI/淺中焙/150g-TEST2.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "3",
+      "path": "Ethiopia/KINGHUJI/淺中焙/150g-TEST3.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "0",
+      "path": "Ethiopia/KINGHUJI/淺焙/150g-TEST0.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Ethiopia/KINGHUJI/淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "極淺焙",
+      "load": 200,
+      "test_num": "1",
+      "path": "Ethiopia/KINGHUJI/極淺焙/200g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "淺中焙",
+      "load": 200,
+      "test_num": "3",
+      "path": "Ethiopia/KINGHUJI/淺中焙/200g-TEST3.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "KINGHUJI",
+      "roast_level": "淺焙",
+      "load": 300,
+      "test_num": "1",
+      "path": "Ethiopia/KINGHUJI/淺焙/300g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaBLUE",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Kenya/KenyaBLUE/淺中焙/150g-TEST1.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaBLUE",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "2",
+      "path": "Kenya/KenyaBLUE/淺中焙/150g-TEST2.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaBLUE",
+      "roast_level": "淺焙",
+      "load": 200,
+      "test_num": "3",
+      "path": "Kenya/KenyaBLUE/淺焙/200g-TEST3.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaBLUE",
+      "roast_level": "中淺焙",
+      "load": 300,
+      "test_num": "1",
+      "path": "Kenya/KenyaBLUE/中淺焙/300g-TEST1.json",
+      "drop_hint": "1C + 90~100s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaBLUE",
+      "roast_level": "極淺焙",
+      "load": 300,
+      "test_num": "1",
+      "path": "Kenya/KenyaBLUE/極淺焙/300g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaPINK",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Kenya/KenyaPINK/極淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaPINK",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Kenya/KenyaPINK/淺中焙/150g-TEST1.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaPINK",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "2",
+      "path": "Kenya/KenyaPINK/淺中焙/150g-TEST2.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Kenya",
+      "item": "KenyaPINK",
+      "roast_level": "極淺焙",
+      "load": 200,
+      "test_num": "2",
+      "path": "Kenya/KenyaPINK/極淺焙/200g-TEST2.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Kenya",
+      "item": "Kenya熱帶繽紛",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Kenya/Kenya熱帶繽紛/極淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Kenya",
+      "item": "Kenya熱帶繽紛",
+      "roast_level": "極淺焙",
+      "load": 200,
+      "test_num": "1",
+      "path": "Kenya/Kenya熱帶繽紛/極淺焙/200g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Sumatra",
+      "item": "SumatraRareWash",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Sumatra/SumatraRareWash/淺中焙/150g-TEST1.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Sumatra",
+      "item": "SumatraRareWash",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "2",
+      "path": "Sumatra/SumatraRareWash/淺中焙/150g-TEST2.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Sumatra",
+      "item": "SumatraRareWash",
+      "roast_level": "淺中焙",
+      "load": 200,
+      "test_num": "2",
+      "path": "Sumatra/SumatraRareWash/淺中焙/200g-TEST2.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 14
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "WASHGUJI",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "1",
+      "path": "Ethiopia/WASHGUJI/(未標)/150g-TEST1.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "WASHGUJI",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "2",
+      "path": "Ethiopia/WASHGUJI/(未標)/150g-TEST2.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "WashGUJI",
+      "roast_level": "淺中焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Ethiopia/WashGUJI/淺中焙/150g-TEST1.json",
+      "drop_hint": "1C + 70~90s",
+      "stages_count": 12
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "WashGUJI",
+      "roast_level": "極淺焙",
+      "load": 300,
+      "test_num": "1",
+      "path": "Ethiopia/WashGUJI/極淺焙/300g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "1",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST1.json",
+      "drop_hint": null,
+      "stages_count": 4
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "10",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST10.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "2",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST2.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "3",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST3.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "4",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST4.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "5",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST5.json",
+      "drop_hint": null,
+      "stages_count": 4
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "6",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST6.json",
+      "drop_hint": null,
+      "stages_count": 9
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "7",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST7.json",
+      "drop_hint": null,
+      "stages_count": 9
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "8",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST8.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "9",
+      "path": "_Unclassified/Y8/(未標)/150g-TEST9.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8小農SWEET",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "11",
+      "path": "_Unclassified/Y8小農SWEET/淺焙/150g-TEST11.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 15
+    },
+    {
+      "origin": "_Unclassified",
+      "item": "Y8小農SWEET",
+      "roast_level": "淺焙",
+      "load": 300,
+      "test_num": "1",
+      "path": "_Unclassified/Y8小農SWEET/淺焙/300g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "danche",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "1",
+      "path": "Ethiopia/danche/(未標)/150g-TEST1.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "danche",
+      "roast_level": "(未標)",
+      "load": 150,
+      "test_num": "2",
+      "path": "Ethiopia/danche/(未標)/150g-TEST2.json",
+      "drop_hint": null,
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "danche",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "Ethiopia/danche/淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "danche",
+      "roast_level": "淺焙",
+      "load": 200,
+      "test_num": "1",
+      "path": "Ethiopia/danche/淺焙/200g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "danche",
+      "roast_level": "淺焙",
+      "load": 200,
+      "test_num": "2",
+      "path": "Ethiopia/danche/淺焙/200g-TEST2.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 15
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "danche",
+      "roast_level": "極淺焙",
+      "load": 250,
+      "test_num": "1",
+      "path": "Ethiopia/danche/極淺焙/250g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Ethiopia",
+      "item": "danche",
+      "roast_level": "極淺焙",
+      "load": 300,
+      "test_num": "1",
+      "path": "Ethiopia/danche/極淺焙/300g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Panama",
+      "item": "panama日曬Geisha",
+      "roast_level": "極淺焙",
+      "load": 200,
+      "test_num": "1",
+      "path": "Panama/panama日曬Geisha/極淺焙/200g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "Panama",
+      "item": "panama日曬Geisha",
+      "roast_level": "極淺焙",
+      "load": 200,
+      "test_num": "2",
+      "path": "Panama/panama日曬Geisha/極淺焙/200g-TEST2.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "_Blend",
+      "item": "琥珀餘香",
+      "roast_level": "中焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "_Blend/琥珀餘香/中焙/150g-TEST1.json",
+      "drop_hint": "1C + 100~120s",
+      "stages_count": 14
+    },
+    {
+      "origin": "_Blend",
+      "item": "琥珀餘香",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "_Blend/琥珀餘香/極淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "_Blend",
+      "item": "琥珀餘香",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "2",
+      "path": "_Blend/琥珀餘香/極淺焙/150g-TEST2.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "_Blend",
+      "item": "琥珀餘香",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "3",
+      "path": "_Blend/琥珀餘香/極淺焙/150g-TEST3.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "_Blend",
+      "item": "琥珀餘香",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "_Blend/琥珀餘香/淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 13
+    },
+    {
+      "origin": "_Blend",
+      "item": "甜夢漫舞",
+      "roast_level": "極淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "_Blend/甜夢漫舞/極淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 30s",
+      "stages_count": 13
+    },
+    {
+      "origin": "_Blend",
+      "item": "甜夢漫舞",
+      "roast_level": "淺焙",
+      "load": 150,
+      "test_num": "1",
+      "path": "_Blend/甜夢漫舞/淺焙/150g-TEST1.json",
+      "drop_hint": "1C + 45~70s",
+      "stages_count": 14
+    }
+  ]
+}
